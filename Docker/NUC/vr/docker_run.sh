@@ -29,7 +29,7 @@ if dpkg --compare-versions 19.03 gt "$DOCKER_VER"; then
     fi
     DOCKER_OPTS="$DOCKER_OPTS --runtime=nvidia"
 else
-    #DOCKER_OPTS="$DOCKER_OPTS --gpus all"
+    # DOCKER_OPTS="$DOCKER_OPTS --gpus all"
     echo "No GPU"
 fi
 
@@ -60,15 +60,15 @@ docker run \
     -e ROS_MASTER_URI=$ROS_MASTER_URI \
     -e ROS_IP=$ROS_IP \
     -v "$XAUTH:$XAUTH" \
-    -v "/home/$USER/GMU_NCTU_Unity_ROS:/home/sis/GMU_NCTU_Unity_ROS" \
+    -v "/home/$USER/git-folder/WFH-locobot:/home/sam/WFH-locobot" \
     -v "/tmp/.X11-unix:/tmp/.X11-unix" \
     -v "/etc/localtime:/etc/localtime:ro" \
     -v "/dev:/dev" \
     -v "/var/run/docker.sock:/var/run/docker.sock" \
-    --name argsubt \
+    --name sam \
     --network host \
     --privileged \
     --security-opt seccomp=unconfined \
     $DOCKER_OPTS \
-    argnctu/locobot:NUC-vr \
+    yimlaisum2014/locobot:NUC-vr \
     $BASH_OPTION

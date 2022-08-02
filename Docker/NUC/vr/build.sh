@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build --rm -t argnctu/locobot:NUC-vr .
+docker build --rm -t yimlaisum2014/locobot:NUC-vr .

@@ -13,8 +13,6 @@ public class Drawing : MonoBehaviour
     public float destroyTimer = 4f;
     public GameObject controllerInput;
     public GameObject Connector;
-    public DateTime gra_trigger_time; //triger feedback - time
-    public bool gra_trigger = false; //triger feedback - bool
     private List<GameObject> lines = new List<GameObject>(); //lists of lines
     private LineRenderer newLine;
     public float startWidth = 0.05f, endWidth = 0.05f;
@@ -22,21 +20,14 @@ public class Drawing : MonoBehaviour
     
     private float gripValue, gripLeftValue, rightTriggerValue;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Connector = GameObject.Find("Robot Connector (Fake)");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*if(Connector == null)
-        {
-            Connector = GameObject.Find("Fake locobot(Clone)");
-        }*/
+
         gripValue = controllerInput.GetComponent<ControllersManager>().getRightGrip();
-        gripLeftValue = controllerInput.GetComponent<ControllersManager>().getLeftGrip();
         rightTriggerValue = controllerInput.GetComponent<ControllersManager>().getRightTrigger();
         
         if (gripLeftValue < 0.1f)
@@ -61,13 +52,10 @@ public class Drawing : MonoBehaviour
             numClicks++;
             Debug.Log("Gip Pressed.");
             Connector.GetComponent<JointStatePublisher>().enabled = true;
-            gra_trigger_time = DateTime.UtcNow; //triger feedback - time
-            gra_trigger = true; //triger feedback - bool
         }
 
         else
         {
-            gra_trigger = false;
             if (gripValue > 0.1f)
             {
                 GameObject draw = new GameObject();
@@ -97,7 +85,6 @@ public class Drawing : MonoBehaviour
 
     private void delLines()
     {
-        //Debug.Log("called");
         for (int i = 0; i < lines.Count; i++)
         {
 

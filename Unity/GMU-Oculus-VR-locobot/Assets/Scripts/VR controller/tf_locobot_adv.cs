@@ -8,7 +8,7 @@ using geo_msgs = RosSharp.RosBridgeClient.MessageTypes.Geometry;
 using Photon.Pun;
 using UnityEngine;
 
-public class tf_locobot : MonoBehaviour
+public class tf_locobot_adv : MonoBehaviour
 {
     // for one object
     public GameObject parent;
@@ -17,6 +17,15 @@ public class tf_locobot : MonoBehaviour
     private Quaternion rotation_ros;
     private Quaternion rotation_unity;
     private string ca_id;
+
+    // for multi object
+    public GameObject[] dope_object;
+    public string[] topic_name;
+    private string[] id_name;
+    private Vector3[] position_unity_array;
+    private Vector3[] position_ros_array;
+    private Quaternion[] rotation_ros_array;
+    private Quaternion[] rotation_unity_array;
 
     RosSocket rosSocket;
     private string RosBridgeServerUrl; //IP address
@@ -66,10 +75,37 @@ public class tf_locobot : MonoBehaviour
         ac_rot_id = rosSocket.Subscribe<std_msgs.Float32MultiArray>("/tf_ac_rotation", sub_ac_rotation); //arm_base_link to camera_color_optical_frame rotation
         acs_pos_id = rosSocket.Subscribe<std_msgs.Float32MultiArray>("/tf_acs_position", sub_acs_position); //arm_base_link to ex_camera_side_link postion
         acs_rot_id = rosSocket.Subscribe<std_msgs.Float32MultiArray>("/tf_acs_rotation", sub_acs_rotation); //arm_base_link to ex_camera_side_link rotation
+        //ca_id = rosSocket.Subscribe<geo_msgs.PoseStamped>("/dope/pose_sugar", Sub_dope_pose);
         ca_id = rosSocket.Subscribe<geo_msgs.PoseStamped>("/dope/pose_sugar", Sub_dope_pose);
 
+        for (int i = 0; i < topic_name.Length ; i++)
+        {
+            id_name[i] = rosSocket.Subscribe<geo_msgs.PoseStamped>(topic_name[i], Sub_dope_pose_array);
+        }
     }
 
+    private void Sub_dope_pose_array(geo_msgs.PoseStamped message)
+    {
+        //Debug.Log("is called");
+        isMessageReceived = true;
+        for (int i=0; i< id_name.Length; i++)
+        {
+            position_ros_array[i].x = (float)message.pose.position.x;
+            position_ros_array[i].y = (float)message.pose.position.y;
+            position_ros_array[i].z = (float)message.pose.position.z;
+
+            //Debug.Log("position_ros " + position_ros);
+            position_unity_array[i] = position_ros_array[i].Ros2Unity();
+            //Debug.Log("position_unity " + position_unity);
+
+            rotation_ros_array[i].x = (float)message.pose.orientation.x;
+            rotation_ros_array[i].y = (float)message.pose.orientation.y;
+            rotation_ros_array[i].z = (float)message.pose.orientation.z;
+            rotation_ros_array[i].w = (float)message.pose.orientation.w;
+            rotation_unity_array[i] = rotation_ros_array[i].Ros2Unity();
+        }
+
+    }
 
     private void Sub_dope_pose(geo_msgs.PoseStamped message)
     {
@@ -175,6 +211,11 @@ public class tf_locobot : MonoBehaviour
             locobot_camera_side.transform.localRotation = acs_rotation_unity_quat;
 
             // Dope position
+            for (int i = 0; i < id_name.Length; i++)
+            {
+                dope_object[i].transform.localPosition = position_unity;
+                dope_object[i].transform.localRotation = rotation_unity;
+            }
             parent.transform.localPosition = position_unity;
             parent.transform.localRotation = rotation_unity;
   

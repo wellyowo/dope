@@ -1,0 +1,32 @@
+group "01_core & rosbridge"
+{
+    cmd "roscore" {
+        exec = "roscore";
+        host = "localhost";
+    }
+    cmd "rosbridge" {
+        exec = "roslaunch rosbridge_server rosbridge_websocket.launch";
+        host = "localhost";
+    }
+}
+
+cmd "02_locobot" {
+      exec = "roslaunch locobot_control main.launch use_camera:=true use_base:=true use_arm:=true";
+      host = "localhost";
+}
+
+cmd "03_side camera" {
+      exec = "roslaunch oculusVR locobot_ex_camera_tf.launch";
+      host = "localhost";
+}
+
+cmd "04_vr_arm" {
+      exec = "roslaunch oculusVR vrarm.launch";
+      host = "localhost";
+}
+
+cmd "05_demo_assist" {
+      exec = "roslaunch oculusVR demo_assist.launch";
+      host = "localhost";
+}
+

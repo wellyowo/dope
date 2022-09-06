@@ -35,7 +35,7 @@ class subArm():
         except (rospy.ServiceException, rospy.ROSException) as e:
             res.success = False
             print("Service call failed: %s"%e)
-        
+
         return res
 
     def gripper_close(self):
@@ -51,7 +51,7 @@ class subArm():
         #print("primary", p_close)
         if (p_close == True):
             self.gripper_close()
-    
+
     def secondarybutton_callback(self, msg_open):
         p_open=msg_open.data
         #print("second",  p_open)
@@ -71,16 +71,16 @@ class subArm():
         joint_4 = _joint.position[5]
         joint_5 = _joint.position[6]
         target_joints = [[joint_1, joint_2, joint_3, joint_4, joint_5]]
-        
+
         for joint in target_joints:
             self.robot.arm.set_joint_positions(joint, plan=False)
             #time.sleep(1)
-        
 
 
-    
+
+
 
 if __name__ == '__main__':
-    rospy.init_node('testarm')
+    rospy.init_node('vrarm')
     test = subArm()
     rospy.spin()

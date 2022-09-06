@@ -22,7 +22,6 @@ public class NetworkRobot : MonoBehaviour
     private float zObject, zVR;
     private List<InputDevice> devices = new List<InputDevice>();
 
-    // Start is called before the first frame update
     void Start()
     {
         controllerPV = GameObject.FindWithTag("Controllers").GetComponent<PhotonView>();
@@ -46,7 +45,6 @@ public class NetworkRobot : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         zVR = vr_controller.eulerAngles.z;

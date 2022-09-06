@@ -50,6 +50,14 @@ MonoBehaviour:
   - getReceivedNetwork
   - getPBC_ReceivedNetwork
   - getSBC_ReceivedNetwork
+  - getGT_Network
+  - getPT_Network
+  - getrosgt_Network
+  - getrosjoint_Network
+  - getrosjt_Network
+  - getrospri_Network
+  - getrossec_Network
+  - getST_Network
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

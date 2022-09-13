@@ -1,2 +1,2 @@
 #! /bin/bash
-bot-procman-sheriff ROS/procman/start_vr
+bot-procman-sheriff -l ROS/procman/start_vr start_vr

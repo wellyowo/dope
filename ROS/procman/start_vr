@@ -30,3 +30,7 @@ cmd "05_demo_assist" {
       host = "localhost";
 }
 
+script "start_vr" {
+
+}
+

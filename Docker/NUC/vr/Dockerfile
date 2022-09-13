@@ -46,6 +46,11 @@ Run apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=t
     net-tools \
     iputils-ping 
 
+    # for proman
+Run apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=true install -yq --no-install-recommends \
+    python-gobject \
+    python-gtk2
+
 ###################################### ROS ######################################
 Run apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-rosbridge-server \
@@ -86,4 +91,19 @@ RUN ./locobot_install_all_for_docker.sh -t full -p 3 -l interbotix
 
 # RUN rm locobot_install_all.sh
 
+###################################### procman ###########################################
+
+RUN cd ${HOME} && git clone https://github.com/lcm-proj/lcm \
+    && cd lcm \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make install
+
+RUN cd ${HOME} && git clone http://github.com/ARG-NCTU/procman \
+    && cd procman \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make install
 

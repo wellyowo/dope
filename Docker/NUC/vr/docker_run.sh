@@ -60,7 +60,7 @@ docker run \
     -e ROS_MASTER_URI=$ROS_MASTER_URI \
     -e ROS_IP=$ROS_IP \
     -v "$XAUTH:$XAUTH" \
-    -v "/home/$USER/git-folder/WFH-locobot:/home/sam/WFH-locobot" \
+    -v "/home/$USER/WFH_locobot:/home/sam/WFH_locobot" \
     -v "/tmp/.X11-unix:/tmp/.X11-unix" \
     -v "/etc/localtime:/etc/localtime:ro" \
     -v "/dev:/dev" \

@@ -1,10 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
-import tf
 import math
 import numpy as np
 import time
-from std_msgs.msg import Bool, Float64
+from std_msgs.msg import Bool, Float64, Empty
 from sensor_msgs.msg import Joy
 from geometry_msgs.msg import PoseStamped, Pose
 from std_srvs.srv import Trigger, TriggerResponse
@@ -17,20 +16,20 @@ class subArm():
         self.robot = Robot('locobot')
         self.sub_primary = rospy.Subscriber("/vr/right/primarybutton", Bool, self.primarybutton_callback,queue_size=3)	#gripper open
         self.sub_second = rospy.Subscriber("/vr/right/secondarybutton", Bool, self.secondarybutton_callback,queue_size=1)
-        self.sun_jointstate = rospy.Subscriber("/joint_states_test", JointState, self.jointstate_callback, queue_size=1)
+        self.sub_jointstate = rospy.Subscriber("/joint_states_test", JointState, self.jointstate_callback, queue_size=1)
 
-	#gripper close
+        self.pub_gripper_open = rospy.Publisher("/gripper/open",Empty,queue_size=1)
+        self.pub_gripper_close = rospy.Publisher("/gripper/close",Empty,queue_size=1)
+
+        #gripper close
         # ros service
         start = rospy.Service("/initial", Trigger, self.initial)
-
         self.robot.arm.go_home()
 
     def initial(self, req):
-
         res = TriggerResponse()
-
         try:
-	    self.robot.arm.go_home()
+            self.robot.arm.go_home()
             res.success = True
         except (rospy.ServiceException, rospy.ROSException) as e:
             res.success = False
@@ -40,11 +39,14 @@ class subArm():
 
     def gripper_close(self):
         print("close")
-        self.robot.gripper.close()
+        #self.robot.gripper.close()
+        self.pub_gripper_close.publish()
 
     def gripper_open(self):
         print("open")
-        self.robot.gripper.open()
+        #self.robot.gripper.open()
+        self.pub_gripper_open.publish()
+        
 
     def primarybutton_callback(self, msg_close):
         p_close = msg_close.data

@@ -1,0 +1,6 @@
+[submodule "ROS/catkin_ws/src/geometry2"]
+	path = ROS/catkin_ws/src/geometry2
+	url = git@github.com:ros/geometry2.git
+[submodule "ROS/catkin_ws/src/vision_opencv"]
+	path = ROS/catkin_ws/src/vision_opencv
+	url = git@github.com:ros-perception/vision_opencv.git

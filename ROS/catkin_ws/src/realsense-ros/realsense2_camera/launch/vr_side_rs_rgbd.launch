@@ -44,8 +44,8 @@ Processing enabled by this node:
 
   <!-- Camera device specific arguments -->
 
-  <!--arg name="serial_no"           default="943222072562"/-->
-  <arg name="serial_no"           default="740112071210"/>
+  <!--arg name="serial_no"           default="740112071210"/-->
+  <arg name="serial_no"           default="943222072562"/>
   <arg name="json_file_path"      default=""/>
 
   <arg name="fisheye_width"       default="640"/>

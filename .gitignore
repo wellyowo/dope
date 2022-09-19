@@ -56,7 +56,7 @@ CATKIN_IGNORE
 *.so
 *.wav
 *.jpg
-*.png
+#*.png
 #*.mat
 *.pdf
 *.csv

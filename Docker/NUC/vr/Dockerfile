@@ -51,6 +51,11 @@ Run apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=t
     python-gobject \
     python-gtk2
 
+    # for python3 tf
+Run apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=true install -yq --no-install-recommends \
+    python3-setuptools \
+    ptyhon3-empy
+
 ###################################### ROS ######################################
 Run apt-get update && apt-get install -y \
     ros-$ROS_DISTRO-rosbridge-server \

@@ -11,12 +11,12 @@ using UnityEngine;
 public class tf_locobot : MonoBehaviour
 {
     // for one object
-    public GameObject parent;
-    private Vector3 position_unity;
+    public GameObject parent,Bar, Cup;
+    private Vector3 obj1_position_unity, obj2_position_unity, obj3_position_unity;
     private Vector3 position_ros;
     private Quaternion rotation_ros;
-    private Quaternion rotation_unity;
-    private string ca_id;
+    private Quaternion obj1_rotation_unity, obj2_rotation_unity, obj3_rotation_unity;
+    private string ca_id, cup_id, bar_id;
 
     RosSocket rosSocket;
     private string RosBridgeServerUrl; //IP address
@@ -66,8 +66,34 @@ public class tf_locobot : MonoBehaviour
         ac_rot_id = rosSocket.Subscribe<std_msgs.Float32MultiArray>("/tf_ac_rotation", sub_ac_rotation); //arm_base_link to camera_color_optical_frame rotation
         acs_pos_id = rosSocket.Subscribe<std_msgs.Float32MultiArray>("/tf_acs_position", sub_acs_position); //arm_base_link to ex_camera_side_link postion
         acs_rot_id = rosSocket.Subscribe<std_msgs.Float32MultiArray>("/tf_acs_rotation", sub_acs_rotation); //arm_base_link to ex_camera_side_link rotation
+        
         ca_id = rosSocket.Subscribe<geo_msgs.PoseStamped>("/dope/pose_sugar", Sub_dope_pose);
+        cup_id = rosSocket.Subscribe<geo_msgs.PoseStamped>("/dope/pose_Water_Cup", Sub_cup_pose);
+        bar_id = rosSocket.Subscribe<geo_msgs.PoseStamped>("/dope/pose_GranolaBars", Sub_bar_pose);
 
+    }
+
+    private static Vector3 R2U_Postion(geo_msgs.Point tran_pose)
+    {
+        Vector3 position_unity;
+        Vector3 position_ros;
+        position_ros.x = (float)tran_pose.x - (float)0.085; //0.125 object y 2/23
+        position_ros.y = (float)tran_pose.y + (float)0.025; //0.025
+        position_ros.z = (float)tran_pose.z - (float)0.045; //0.045 
+        position_unity = position_ros.Ros2Unity();
+        return position_unity;
+    }
+
+    private static Quaternion R2U_Rotation(geo_msgs.Quaternion tran_rotation)
+    {
+        Quaternion rotation_ros;
+        Quaternion rotation_unity;
+        rotation_ros.x = (float)tran_rotation.x;
+        rotation_ros.y = (float)tran_rotation.y;
+        rotation_ros.z = (float)tran_rotation.z;
+        rotation_ros.w = (float)tran_rotation.w;
+        rotation_unity = rotation_ros.Ros2Unity();
+        return rotation_unity;
     }
 
 
@@ -76,21 +102,33 @@ public class tf_locobot : MonoBehaviour
         //Debug.Log("is called");
         isMessageReceived = true;
 
-        position_ros.x = (float)message.pose.position.x;
-        position_ros.y = (float)message.pose.position.y;
-        position_ros.z = (float)message.pose.position.z;
-
-        //Debug.Log("position_ros " + position_ros);
-        position_unity = position_ros.Ros2Unity();
-        //Debug.Log("position_unity " + position_unity);
-
-        rotation_ros.x = (float)message.pose.orientation.x;
-        rotation_ros.y = (float)message.pose.orientation.y;
-        rotation_ros.z = (float)message.pose.orientation.z;
-        rotation_ros.w = (float)message.pose.orientation.w;
-        rotation_unity = rotation_ros.Ros2Unity();
-
+        Vector3 dope_unity_position = R2U_Postion(message.pose.position);
+        obj1_position_unity = dope_unity_position;
+        Quaternion dope_unity_rotation = R2U_Rotation(message.pose.orientation);
+        obj1_rotation_unity = dope_unity_rotation;
     }
+    private void Sub_cup_pose(geo_msgs.PoseStamped message)
+    {
+        //Debug.Log("is called");
+        isMessageReceived = true;
+
+        Vector3 dope_unity_position = R2U_Postion(message.pose.position);
+        obj2_position_unity = dope_unity_position;
+        Quaternion dope_unity_rotation = R2U_Rotation(message.pose.orientation);
+        obj2_rotation_unity = dope_unity_rotation;
+    }
+
+    private void Sub_bar_pose(geo_msgs.PoseStamped message)
+    {
+        //Debug.Log("is called");
+        isMessageReceived = true;
+
+        Vector3 dope_unity_position = R2U_Postion(message.pose.position);
+        obj3_position_unity = dope_unity_position;
+        Quaternion dope_unity_rotation = R2U_Rotation(message.pose.orientation);
+        obj3_rotation_unity = dope_unity_rotation;
+    }
+
 
     //obom to arm_base_link
     private void sub_oa_position(std_msgs.Float32MultiArray message)
@@ -175,9 +213,15 @@ public class tf_locobot : MonoBehaviour
             locobot_camera_side.transform.localRotation = acs_rotation_unity_quat;
 
             // Dope position
-            parent.transform.localPosition = position_unity;
-            parent.transform.localRotation = rotation_unity;
-  
+            parent.transform.localPosition = obj1_position_unity;
+            parent.transform.localRotation = obj1_rotation_unity;
+            Bar.transform.localPosition = obj3_position_unity;
+            Bar.transform.localRotation = obj3_rotation_unity;
+            Cup.transform.localPosition = obj2_position_unity;
+            Cup.transform.localRotation = obj2_rotation_unity;
+
+
+
         }
 
 

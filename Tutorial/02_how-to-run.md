@@ -1,5 +1,5 @@
 # How to setup and run WFH-locobot system
-![vr_procman](Figures/system.JPG)
+![system](Figures/system.JPG)
 
 **Computing Unit** :
 

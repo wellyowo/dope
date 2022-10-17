@@ -18,7 +18,7 @@ git checkout devel-exp
 docker pull yimlaisum2014/dope:gpu-noetic
 ```
 
-3. Enter Docker and make&source 
+3. Enter Docker and make&source workspace
 
 ```bash
 source docker_run.sh

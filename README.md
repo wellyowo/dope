@@ -68,8 +68,8 @@ You could follow the following instrunction:
 2. Create a New Unity Project and following the Basic setup section
 3. Import WFH-VR unity package
 4. Choose the scense fit your network setup and the feature
-    - [[Turial Link](Tutorial\P_Local_w_VS.md)] Local mode : wired ethernet connection with VR-VS mode 
-    - [[Turial Link](Tutorial\P_Local_w_3DO.md)] Local mode : wired ethernet connection with VR-3DO mode (pose-estimation by DOPE) 
-    - [[Turial Link](Tutorial\P_Global_w_VS.md)] Glocal mode : PUN2 cloud framework with VR-VS mode 
-    - [[Turial Link](Tutorial\P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
+    - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Local_w_VS.md)] Local mode : wired ethernet connection with VR-VS mode 
+    - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Local_w_3DO.md)] Local mode : wired ethernet connection with VR-3DO mode (pose-estimation by DOPE) 
+    - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Global_w_VS.md)] Glocal mode : PUN2 cloud framework with VR-VS mode 
+    - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
 

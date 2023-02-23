@@ -3,25 +3,28 @@
 ## Application : 
 If you would like to setup internet connection between two site by using PUN and using pose-estimation method to update the target object pose.
 
-## Example setup
-Operator site : 
-- one PC for running unity (Windows OS)
-Remote site : 
-- one PC fpr running unity (Windows OS)
-- one NUC for robot control (Ubuntu)
+## Hardware and Network setup
+![Global_w_VS.](Figures\Global_w_3DO.png)
 
-## Networl setup: 
-1. known PUN App ID and region of the server
+Operator site : 
+- [Machine 4] one PC for running unity (Windows OS) (connected to internet)
+
+Remote site : 
+- [Machine 1] one PC for running unity (Windows OS) (connected to internet) (IP Address: 10.42.0.3)
+- [Machine 2] one NUC for robot control (Ubuntu) (IP Address: 10.42.0.2 - ros master)
+- [Machine 3] one PC for running DOPE (Ubuntu) (IP Address: 10.42.0.5)
+
+
+Network setup
+1. Get PUN App ID and region of the server
 - ID : 0fbeb5f2-xxxx-xxxx-xxxx-3c50ed985759
 - dev region : jp
+2. Setup PUN information in PC whose running unity in both site (Machine 1, Machine 4)
 
-2. known both computer’s IP address 
-- Remote : NUC (10.42.0.2 - ros master) : robot control
-- Remote : PC (10.42.0.3) : running unity
 
 ## Usage
 
-### Operator site : Unity setting 
+### Machine 1 : Remote site : Unity setting 
 
 #### Step1. Goto the scene (Global with video-streaming)
 
@@ -33,7 +36,7 @@ Remote site :
         - Camera view_2 (if you have)
 - update the ip address with you ros_master_ip address
 
-### Remote site : ROS setting 
+### Machine 2 : Remote site : ROS setting 
 Remind : 
 
 - suggest run the script for vr script and locobot script separately because of different workspace.
@@ -82,5 +85,45 @@ What script needed to launch :
 - vr_arm
 - *side_camera (if you have extra D435 camera)
 
+### Machine 3 : Remote site : DOPE setting
 
+1. Clone repo
+
+```bash
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+git clone https://github.com/yimlaisum2014/Deep-Object-Pose.git dope
+cd dope/
+git checkout devel-exp
+```
+
+2. Pull Docker
+
+``` bash
+docker pull yimlaisum2014/dope:gpu-noetic
+```
+
+3. Enter Docker and make&source workspace
+
+```bash
+source docker_run.sh
+cd /home/catkin_ws/
+catkin_make
+source devel/setup.bash
+```
+
+4. Launch Dope
+
+Put weight in the ~/catkin_ws/src/dope
+```bash
+roslaunch dope dope.launch
+```
+
+
+### Machine 4 : Operator site : Unity setting 
+
+#### 1. Goto the scene (Global with video-streaming)
+Remind : 
+
+- start before the remote site's Unity
 

@@ -1,34 +1,33 @@
 # Local mode : PUN2 cloud framework with VR-VS mode 
 
 ## Application : 
-Application : if you would like to setup internet connection between two site by using PUN
+If you would like to setup internet connection between two site by using PUN. And you would like to obserate the remote enviroenment by using image streaming.
 
-## Example setup
+## Hardware and Network setup
+![Global_w_VS.](Figures\Global_w_VS.png)
+
 Operator site : 
-- one PC for running unity (Windows OS)
+- [Machine 4] one PC for running unity (Windows OS) (connected to internet)
+
 Remote site : 
-- one PC fpr running unity (Windows OS)
-- one NUC for robot control (Ubuntu)
+- [Machine 1] one PC for running unity (Windows OS) (connected to internet) (IP Address: 10.42.0.3)
+- [Machine 2] one NUC for robot control (Ubuntu) (IP Address: 10.42.0.2 - ros master)
 
-## Networl setup: 
 
-- Operator : PC
-1. known PUN App ID and region of the server
+Network setup
+1. Get PUN App ID and region of the server
 - ID : 0fbeb5f2-xxxx-xxxx-xxxx-3c50ed985759
 - dev region : jp
+2. Setup PUN information in PC whose running unity in both site (Machine 1, Machine 4)
 
-2. known both computer’s IP address 
-- Remote : NUC (10.42.0.2 - ros master) : robot control
-- Remote : PC (10.42.0.3) : running unity
-- Remote : PC (10.42.0.4) : running DOPE
 
 ## Usage
 
-### Operator site : Unity setting 
+### Machine 1 : Remote site : Unity setting 
 
-#### Step1. Goto the scene (Global with video-streaming)
+#### 1. Goto the scene (Global with video-streaming)
 
-#### Step2. Goto Game Manager > UpdatedIP
+#### 2. Goto Game Manager > UpdatedIP
 - Assign which object needed to update the ros_ip
     - Default setting : 
         - Robot Connector (real) Robot Connector (human) + 
@@ -36,7 +35,10 @@ Remote site :
         - Camera view_2 (if you have)
 - update the ip address with you ros_master_ip address
 
-### Remote site : ROS setting 
+#### 3. Start Unity
+- Once you saw the operator's locobot (transparents) appear, assign the fake locobot to the Robot Connector>Joint State Paatcher>Urdf Robot and press enable to publish Joint state
+
+### Machine 2 : Remote site : ROS setting 
 Remind : 
 
 - suggest run the script for vr script and locobot script separately because of different workspace.
@@ -85,5 +87,10 @@ What script needed to launch :
 - vr_arm
 - *side_camera (if you have extra D435 camera)
 
+### Machine 4 : Operator site : Unity setting 
 
+#### 1. Goto the scene (Global with video-streaming)
+Remind : 
+
+- start before the remote site's Unity
 

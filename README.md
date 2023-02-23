@@ -41,7 +41,7 @@ Unity package :
 ### VR devices
 1. Oculus XR Plugin
 Goto Edit > Project Settings > XR Plug-in Management, set the oculus 
-2. XR interaction Toolkit [Link]
+2. XR interaction Toolkit 
 3. Import starter Assets
 
 ### PUN2
@@ -58,18 +58,26 @@ If you are interested build up WFH-VR system from scratch.
 
 You could follow the following tutorial:
 
-1. 
+1. [Setup VR device](Tutorial/S_setup_VR.md)
+2. [LoCoBot setting in Unity](Tutorial/S_setup_locobot.md)
+3. [Setup PUN](Tutorial/S_setup_PUN.md)
 
 If you are interested in develop your own feature based on WFH-VR system or use WFH-VR system
 
 You could follow the following instrunction: 
 
-1. You should download this unity package. [Link](https://drive.google.com/file/d/1kydMeaIZmJhMl7KHf5UtlN6aVfZTzvmk/view?usp=share_link)
+1. Download this unity package. [Link](https://drive.google.com/file/d/1kydMeaIZmJhMl7KHf5UtlN6aVfZTzvmk/view?usp=share_link)
 2. Create a New Unity Project and following the Basic setup section
 3. Import WFH-VR unity package
 4. Choose the scense fit your network setup and the feature
+
     - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Local_w_VS.md)] Local mode : wired ethernet connection with VR-VS mode 
+    ![Global_w_VS.](Tutorial/Figures\Local_w_VS.png)
     - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Local_w_3DO.md)] Local mode : wired ethernet connection with VR-3DO mode (pose-estimation by DOPE) 
+    ![Global_w_VS.](Tutorial/Figures\Local_w_3DO.png)
     - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Global_w_VS.md)] Glocal mode : PUN2 cloud framework with VR-VS mode 
+    ![Global_w_VS.](Tutorial/Figures\Global_w_VS.png)
     - [[Turial Link](https://github.com/ARG-NCTU/WFH_locobot/blob/main/Tutorial/P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
+    ![Global_w_VS.](Tutorial/Figures\Global_w_3DO.png)
+
 

@@ -1,29 +1,25 @@
 # Local mode : wired ethernet connection with VR-VS mode 
 
 ## Application : 
-You want to set up the local network, in which your operator site and remote site are under the same domain network, connected by wired ethernet or wifi. And you would like to abserate the remote enviroenment by using image streaming.
+You want to set up the local network, in which your operator site and remote site are under the same domain network, connected by wired ethernet or wifi. And you would like to obserate the remote enviroenment by using image streaming.
 
-## Example setup
+## Hardware and Network setup
+![Local_w_VS.](Figures\Local_w_VS.png)
+
 Operator site : 
-- one PC for running unity (Windows OS)
+- [Machine 1] one PC for running unity (Windows OS) (IP Address: 10.42.0.3)
+
 Remote site : 
-- one NUC for robot control (Ubuntu)
+- [Machine 2] one NUC for robot control (Ubuntu) (IP Address: 10.42.0.2 - ros master)
 
-## Networl setup: 
-1. known both computer’s IP address 
-
-- Operator : PC (10.42.0.3)
-- Remote : NUC (10.42.0.2 - ros master) : robot control
-
-2. known both computer’s IP address 
 
 ## Usage
 
-### Operator site : Unity setting (PC (10.42.0.3))
+### Machine 1 : Operator site : Unity setting
 
-#### Step1. Goto the scene (Local with video-streaming)
+#### 1. Goto the scene (Local with video-streaming)
 
-#### Step2. Goto Game Manager > UpdatedIP
+#### 2. Goto Game Manager > UpdatedIP
 - Assign which object needed to update the ros_ip
     - Default setting : 
         - Robot Connector (real) Robot Connector (human) + 
@@ -31,11 +27,11 @@ Remote site :
         - Camera view_2 (if you have)
 - update the ip address with you ros_master_ip address
 
-### Remote site : ROS setting (NUC(10.42.0.2))
+### Machine2 : Remote site : ROS setting
 Remind : 
 
-- suggest run the script for vr script and locobot script separately because of different workspace.
-- unplug another D435-camera first if you have one because due to the original script will launch a D435-camera (pyrobot)
+- Suggest run the script for vr script and locobot script separately because of different workspace.
+- Unplug another D435-camera first if you have one because due to the original script will launch a D435-camera (pyrobot)
 
 #### 1. Clone repo
 
@@ -67,6 +63,7 @@ Docker $ source run_locobot.sh
 #### 5. Start WFH-VE procman
 ```bash
 Docker $ cd WFH_locobot/
+Docker $ source catkin_make_py2.sh
 Docker $ source set_wfh_workspace_env.sh
 Docker $ source start_vr.sh
 ```

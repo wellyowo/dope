@@ -4,7 +4,7 @@
 If you would like to setup internet connection between two site by using PUN. And you would like to obserate the remote enviroenment by using image streaming.
 
 ## Hardware and Network setup
-![Global_w_VS.](Figures\Global_w_VS.png)
+![Global_w_VS.](Figures/global_w_vs.PNG)
 
 Operator site : 
 - [Machine 4] one PC for running unity (Windows OS) (connected to internet)

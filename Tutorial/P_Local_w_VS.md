@@ -4,7 +4,7 @@
 You want to set up the local network, in which your operator site and remote site are under the same domain network, connected by wired ethernet or wifi. And you would like to obserate the remote enviroenment by using image streaming.
 
 ## Hardware and Network setup
-![Local_w_VS.](Figures\Local_w_VS.png)
+![Local_w_VS.](Figures/local_w_vs.PNG)
 
 Operator site : 
 - [Machine 1] one PC for running unity (Windows OS) (IP Address: 10.42.0.3)

@@ -4,7 +4,7 @@
 If you would like to setup internet connection between two site by using PUN and using pose-estimation method to update the target object pose.
 
 ## Hardware and Network setup
-![Global_w_VS.](Figures\Global_w_3DO.png)
+![Global_w_VS.](Figures/global_w_3do.PNG)
 
 Operator site : 
 - [Machine 4] one PC for running unity (Windows OS) (connected to internet)

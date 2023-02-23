@@ -83,5 +83,5 @@ Purpose : vitual counterpart which updated the pose by using pose-estimation met
     4. add mesh renderer with default-material
     5. add image subscriber (fill in the correct topic name and ros_ip
 
-    <img src="Figures/from_scatch/camera_1.png" width="" height=""/>
+    <img src="Figures/from_scatch/Camera_1.png" width="" height=""/>
 

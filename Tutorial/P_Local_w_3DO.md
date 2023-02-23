@@ -5,7 +5,7 @@ You want to set up the local network, in which your operator site and remote sit
 
 
 ## Hardware and Network setup
-![Global_w_VS.](Figures\Local_w_3DO.png)
+![Global_w_VS.](Figures/local_w_3do.PNG)
 
 Operator site : 
 - [Machine 1] one PC for running unity (Windows OS) (IP Address: 10.42.0.4)

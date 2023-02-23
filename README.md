@@ -71,13 +71,13 @@ You could follow the following instrunction:
 3. Import WFH-VR unity package
 4. Choose the scense fit your network setup and the feature
 
-    - [[Turial Link](Tutorial/P_Local_w_VS.md)] Local mode : wired ethernet connection with VR-VS mode 
-    ![Global_w_VS.](Tutorial/Figures\local_w_vs.PNG)
-    - [[Turial Link](Tutorial/P_Local_w_3DO.md)] Local mode : wired ethernet connection with VR-3DO mode (pose-estimation by DOPE) 
-    ![Global_w_VS.](Tutorial/Figures\local_w_3do.PNG)
-    - [[Turial Link](Tutorial/P_Global_w_VS.md)] Glocal mode : PUN2 cloud framework with VR-VS mode 
-    ![Global_w_VS.](Tutorial/Figures\global_w_vs.PNG)
-    - [[Turial Link](Tutorial/P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
-    ![Global_w_VS.](Tutorial/Figures\global_w_3do.PNG)
+    - [[Tutorial Link](Tutorial/P_Local_w_VS.md)] Local mode : wired ethernet connection with VR-VS mode 
+    ![Global_w_VS.](Tutorial/Figures/local_w_vs.PNG)
+    - [[Tutorial Link](Tutorial/P_Local_w_3DO.md)] Local mode : wired ethernet connection with VR-3DO mode (pose-estimation by DOPE) 
+    ![Global_w_VS.](Tutorial/Figures/local_w_3do.PNG)
+    - [[Tutorial Link](Tutorial/P_Global_w_VS.md)] Glocal mode : PUN2 cloud framework with VR-VS mode 
+    ![Global_w_VS.](Tutorial/Figures/global_w_vs.PNG)
+    - [[Tutorial Link](Tutorial/P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
+    ![Global_w_VS.](Tutorial/Figures/global_w_3do.PNG)
 
 

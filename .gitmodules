@@ -4,3 +4,6 @@
 [submodule "ROS/catkin_ws/src/vision_opencv"]
 	path = ROS/catkin_ws/src/vision_opencv
 	url = git@github.com:ros-perception/vision_opencv.git
+[submodule "ROS/catkin_ws/src/image_transport_plugins"]
+	path = ROS/catkin_ws/src/image_transport_plugins
+	url = git@github.com:jinglinjackychen/image_transport_plugins.git

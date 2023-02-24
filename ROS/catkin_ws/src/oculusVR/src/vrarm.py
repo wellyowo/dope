@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import rospy
 import math
 import numpy as np
@@ -14,7 +14,7 @@ class subArm():
 
     def __init__(self):
         self.robot = Robot('locobot')
-        self.sub_primary = rospy.Subscriber("/vr/right/primarybutton", Bool, self.primarybutton_callback,queue_size=3)	#gripper open
+        self.sub_primary = rospy.Subscriber("/vr/right/primarybutton", Bool, self.primarybutton_callback,queue_size=1)	#gripper open
         self.sub_second = rospy.Subscriber("/vr/right/secondarybutton", Bool, self.secondarybutton_callback,queue_size=1)
         self.sub_jointstate = rospy.Subscriber("/joint_states_test", JointState, self.jointstate_callback, queue_size=1)
 
@@ -55,7 +55,7 @@ class subArm():
             self.gripper_close()
 
     def secondarybutton_callback(self, msg_open):
-        p_open=msg_open.data
+        p_open = msg_open.data
         #print("second",  p_open)
         if (p_open == True):
             self.gripper_open()
@@ -74,13 +74,12 @@ class subArm():
         joint_5 = _joint.position[6]
         target_joints = [[joint_1, joint_2, joint_3, joint_4, joint_5]]
 
-        for joint in target_joints:
-            self.robot.arm.set_joint_positions(joint, plan=False)
-            #time.sleep(1)
-
-
-
-
+        if (joint_3 < -1.3 and joint_2 < -0.3):
+            pass
+        else:
+            for joint in target_joints:
+                self.robot.arm.set_joint_positions(joint, plan=False)
+                #time.sleep(1)
 
 if __name__ == '__main__':
     rospy.init_node('vrarm')

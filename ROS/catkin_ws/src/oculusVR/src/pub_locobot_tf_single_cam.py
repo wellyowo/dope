@@ -16,7 +16,7 @@ if __name__ == '__main__':
             #listener
             (trans_oa,rot_oa) = listener.lookupTransform('odom','arm_base_link', rospy.Time(0))
             (trans_ac,rot_ac) = listener.lookupTransform('arm_base_link','camera_color_optical_frame', rospy.Time(0))
-            (trans_acs,rot_acs) = listener.lookupTransform('arm_base_link','ex_side_camera_color_optical_frame', rospy.Time(0)) # top_side_tf
+            #(trans_acs,rot_acs) = listener.lookupTransform('arm_base_link','ex_side_camera_color_optical_frame', rospy.Time(0)) # top_side_tf
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
 	    #print("no tf")
             continue
@@ -30,8 +30,8 @@ if __name__ == '__main__':
         rot_oa_msg = Float32MultiArray()
         trans_ac_msg = Float32MultiArray()
         rot_ac_msg = Float32MultiArray()
-        trans_acs_msg = Float32MultiArray() #side_camera
-        rot_acs_msg = Float32MultiArray()  #side_camera
+        #trans_acs_msg = Float32MultiArray() #side_camera
+        #rot_acs_msg = Float32MultiArray()  #side_camera
  
 
 
@@ -42,23 +42,23 @@ if __name__ == '__main__':
         pub_ac_r = rospy.Publisher('tf_ac_rotation', Float32MultiArray, queue_size=1)
 
         #side_camera
-        pub_acs_p = rospy.Publisher('tf_acs_position', Float32MultiArray, queue_size=1)
-        pub_acs_r = rospy.Publisher('tf_acs_rotation', Float32MultiArray, queue_size=1)
+        #pub_acs_p = rospy.Publisher('tf_acs_position', Float32MultiArray, queue_size=1)
+        #pub_acs_r = rospy.Publisher('tf_acs_rotation', Float32MultiArray, queue_size=1)
 
         
         trans_oa_msg.data = trans_oa
         rot_oa_msg.data = rot_oa
         trans_ac_msg.data = trans_ac
         rot_ac_msg.data = rot_ac
-        trans_acs_msg.data = trans_acs #side_camera
-        rot_acs_msg.data = rot_acs #side_camera
+        #trans_acs_msg.data = trans_acs #side_camera
+        #rot_acs_msg.data = rot_acs #side_camera
 
         
         pub_oa_p.publish(trans_oa_msg)
         pub_oa_r.publish(rot_oa_msg)
         pub_ac_p.publish(trans_ac_msg)
         pub_ac_r.publish(rot_ac_msg)
-        pub_acs_p.publish(trans_acs_msg) #side_camera
-        pub_acs_r.publish(rot_acs_msg) #side_camera
+        #pub_acs_p.publish(trans_acs_msg) #side_camera
+        #pub_acs_r.publish(rot_acs_msg) #side_camera
 
         # rate.sleep()

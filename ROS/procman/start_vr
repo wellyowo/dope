@@ -3,11 +3,17 @@ cmd "01_rosbridge" {
         host = "localhost";
 }
 
+group "02_camera" {
 
-cmd "02_side camera" {
-      exec = "roslaunch oculusVR locobot_ex_camera_tf.launch";
-      host = "localhost";
-}  
+      cmd "02a_single_top_camera" {
+            exec = "rosrun oculusVR pub_locobot_tf_single_cam.py";
+            host = "localhost";
+      }  
+      cmd "02b_dual_top_side_camera" {
+            exec = "roslaunch oculusVR locobot_ex_camera_tf.launch";
+            host = "localhost";
+      }  
+}
 
 
 cmd "03_vr_arm" {

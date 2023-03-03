@@ -18,15 +18,16 @@ Remote site :
 
 ### Machine 1 : Operator site : Unity setting 
 
-#### Step1. Goto the scene (Global with video-streaming)
+#### Step1. Goto the scene (Local_with_VR-3DO_mode sence)
 
 #### Step2. Goto Game Manager > UpdatedIP
 - Assign which object needed to update the ros_ip
     - Default setting : 
-        - Robot Connector (real) Robot Connector (human) + 
+        - Robot Connector (real) 
+        - Robot Connector (human)
         - Camera view_1 
         - Camera view_2 (if you have)
-- update the ip address with you ros_master_ip address
+- update the ip address with you ros_master_ip address, in this example, the ros_master_ip is ws://10.42.0.2:9090
 
 ### Machine 2 : Remote site : ROS setting 
 Remind : 
@@ -72,7 +73,6 @@ Docker $ source start_vr.sh
 ![vr_procman](Figures/vr_procman.png)
 
 What script needed to launch :
-- ros_core
 - robridge
 - vr_arm
 - *side_camera (if you have extra D435 camera)

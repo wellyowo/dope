@@ -99,14 +99,14 @@ docker pull yimlaisum2014/dope:gpu-noetic
 
 ```bash
 source docker_run.sh
-cd /home/catkin_ws/
+cd /home/$USER/catkin_ws/
 catkin_make
 source devel/setup.bash
 ```
 
 4. Launch Dope
 
-Put weight in the ~/catkin_ws/src/dope
-```bash
+Put weight in the ~/catkin_ws/src/dope and modify the /dope/config/config_pose.yaml
+```bash 
 roslaunch dope dope.launch
 ```

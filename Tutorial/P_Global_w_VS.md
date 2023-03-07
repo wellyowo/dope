@@ -59,7 +59,7 @@ docker pull yimlaisum2014/locobot:NUC-vr-py2
 ```
 #### 3. Enter Docker
 ```
-NUC $ cd WFH_locobot/Docker/NUC/vr
+NUC $ cd WFH_locobot/Docker/NUC/video_streaming
 NUC $ source docker_run.sh
 ```
 

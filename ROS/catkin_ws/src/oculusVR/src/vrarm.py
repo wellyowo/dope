@@ -24,12 +24,32 @@ class subArm():
         #gripper close
         # ros service
         start = rospy.Service("/initial", Trigger, self.initial)
+        calibration = rospy.Service("/calibration", Trigger, self.calibration)
         self.robot.arm.go_home()
 
     def initial(self, req):
         res = TriggerResponse()
         try:
             self.robot.arm.go_home()
+            res.success = True
+        except (rospy.ServiceException, rospy.ROSException) as e:
+            res.success = False
+            print("Service call failed: %s"%e)
+
+        return res
+
+    def calibration(self, req):
+        res = TriggerResponse()
+        try:
+            joint_1 = 0.03374757990241051
+            joint_2 = -0.2653786838054657
+            joint_3 = 1.4051264524459839
+            joint_4 = -1.1627575159072876
+            joint_5 = -0.06902913749217987
+            target_joints = [[joint_1, joint_2, joint_3, joint_4, joint_5]]
+
+            for joint in target_joints:
+                self.robot.arm.set_joint_positions(joint, plan=False)
             res.success = True
         except (rospy.ServiceException, rospy.ROSException) as e:
             res.success = False

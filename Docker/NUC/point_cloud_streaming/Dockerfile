@@ -71,13 +71,14 @@ Run apt-get update && apt-get install -y \
 
 #################################### GTSAM ####################################
 
-# RUN cd ${HOME}/ \
-#     && git clone https://github.com/borglab/gtsam.git \
-#     && cd gtsam/ \
-#     && mkdir build \
-#     && cd build \
-#     && cmake .. \
-#     && make install
+RUN cd ${HOME}/ \
+    && git clone https://github.com/borglab/gtsam.git \
+    && cd gtsam/ \
+    && git checkout 4.0.3 \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make install
 
 ###################################### PIP3 ######################################
 

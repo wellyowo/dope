@@ -7,3 +7,6 @@
 [submodule "ROS/catkin_ws/src/image_transport_plugins"]
 	path = ROS/catkin_ws/src/image_transport_plugins
 	url = git@github.com:jinglinjackychen/image_transport_plugins.git
+[submodule "ROS/catkin_ws/src/apriltags_ros"]
+	path = ROS/catkin_ws/src/apriltags_ros
+	url = git@github.com:ARG-NCTU/apriltags_ros.git

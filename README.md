@@ -38,8 +38,14 @@ You could follow the following instrunction:
 
 ## Teleoperation
 
-1. Download WFH-VR unity package from this repo. [Link](https://github.com/yimlaisum2014/vr_navi_mani_unity)
+1. Download WFH-VR unity package from this repo. [Link](https://github.com/ARG-NCTU/WFH_locobot_unity)
 2. Create a New Unity Project
+3. Install necessary package
+  - XR interaction Toolkit (version : 2.0.2)
+  - RosSharp 
+  - PUN2
+  - Animation Rigging
+  - Final-ik 
 3. Import WFH-VR unity package
 4. Choose the scense fit your network setup and the feature
 

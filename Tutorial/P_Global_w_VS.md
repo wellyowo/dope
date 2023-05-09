@@ -23,6 +23,13 @@ Network setup
 
 ## Usage
 
+Procedure : 
+
+1. Set Machine 2 for starting locobot
+2. Set Machine 4 for sending vr-controller's value from the user
+3. Set Machine 1 for assign the human-robot's urdf to the connector
+
+
 ### Machine 1 : Remote site : Unity setting 
 
 #### 1. Goto the scene (Global with video-streaming)
@@ -36,7 +43,8 @@ Network setup
 - update the ip address with you ros_master_ip address
 
 #### 3. Start Unity
-- Once you saw the operator's locobot (transparents) appear, assign the fake locobot to the Robot Connector>Joint State Paatcher>Urdf Robot and press enable to publish Joint state
+- You should start the Machine 4 First
+- Once you saw the operator's locobot (transparents) appear, assign the human locobot to the Robot Connector (Human) > Joint State Paatcher > Urdf Robot and press enable to publish Joint state
 
 ### Machine 2 : Remote site : ROS setting 
 Remind : 
@@ -93,4 +101,7 @@ What script needed to launch :
 Remind : 
 
 - start before the remote site's Unity
+
+
+
 

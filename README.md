@@ -36,6 +36,8 @@ Unity package :
 
 You could follow the following instrunction: 
 
+## Teleoperation
+
 1. Download WFH-VR unity package from this repo. [Link](https://github.com/yimlaisum2014/vr_navi_mani_unity)
 2. Create a New Unity Project
 3. Import WFH-VR unity package
@@ -50,4 +52,21 @@ You could follow the following instrunction:
     - [[Tutorial Link](Tutorial/P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
     ![Global_w_VS.](Tutorial/Figures/global_w_3do.PNG)
 
+## Record the trajectory
 
+1. Recommand you should record bag first
+```
+$ source record_vr.sh
+```
+
+2. Launch a file for listening tf from /base_link /gripper_link
+```
+$ roslaunch locobot_trajectory_log new_locobot_trajectory_log.launch
+```
+
+3. Save and Stop recoring as csv. file 
+
+```
+$ rosservice call /start_record 
+$ rosservice call /stop_record 
+```

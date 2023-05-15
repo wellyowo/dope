@@ -41,7 +41,7 @@ You could follow the following instrunction:
 1. Download WFH-VR unity package from this repo. [Link](https://github.com/ARG-NCTU/WFH_locobot_unity)
 2. Create a New Unity Project
 3. Install necessary package
-    - XR interaction Toolkit (version : 2.0.2)
+    - XR interaction Toolkit
     - RosSharp 
     - PUN2
     - Animation Rigging

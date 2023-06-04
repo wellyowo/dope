@@ -1,0 +1,8 @@
+prefix=/home/dope/dope/catkin_ws/devel
+
+Name: topic_rosbridge
+Description: Description of topic_rosbridge
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/dope/dope/catkin_ws/devel
+
+Name: dope_pose
+Description: Description of dope_pose
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

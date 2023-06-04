@@ -1,0 +1,2 @@
+Deep_Object_Pose:dope_pose:realsense-ros/realsense2_camera:realsense-ros/realsense2_description:topic_rosbridge:vision_opencv/cv_bridge:vision_opencv/image_geometry:vision_opencv/opencv_tests:vision_opencv/vision_opencv
+-DCATKIN_DEVEL_PREFIX=/home/dope/dope/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dope/dope/catkin_ws/install -G Unix Makefiles

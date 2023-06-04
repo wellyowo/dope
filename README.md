@@ -2,7 +2,7 @@
 
 ## clone repo
 ```
-    $ git clone --recursive https://github.com/jinglinjackychen/dope.git
+    $ git clone --recursive git@github.com:wellyowo/dope.git
 ```
 
 *You can run this code on a GPU computer and CPU computer, but if you want to execute DOPE program, please change GPU computer to run*

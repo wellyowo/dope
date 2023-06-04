@@ -45,6 +45,15 @@ On DOPE PC
     Docker$ rosrun image_transport republish compressed in:=/camera/color/image_raw raw out:=/dope/image_raw
     Docker$ roslaunch dope dope.launch
 ```
+## For across the globe dope
+```
+    $ cd Docker && source docker_run.sh gpu
+    Docker$ cd catkin_ws && catkin_make #only need at first time
+    Docker$ source environment.sh (locobot_ip) (GPU_computer_ip)
+    Docker$ roslaunch dope_pose object_left_trans.launch pose:="result of hand_eye_calibration x y z quaternion" 
+    e.g. pose:="0.443019 0.515959 0.742330 0.323063 0.307332 -0.627258 0.638534"
+
+```
 
 ## If you want to enter same container
 ```

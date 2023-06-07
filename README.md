@@ -31,53 +31,48 @@ Unity package :
 - Animation Rigging
 - Final-ik 
 
-# Basic setup
-
-##  Setup in unity
-### ROS sharp
-1. Clone from this repo : https://github.com/yimlaisum2014/RosSharp
-2. Copy RosSharp folder into your_unity_project/Assets
-
-### VR devices
-1. Oculus XR Plugin
-Goto Edit > Project Settings > XR Plug-in Management, set the oculus 
-2. XR interaction Toolkit 
-3. Import starter Assets
-
-### PUN2
-1. Download and import Photon Unity Networking packages
-2. Get the Appid from your PUN2 account
-3. Window >  Photon Unity Networking > Highlight server setting (Make sure the App Id PUN and Dev Region are been set)
-
-P.S Having same name of websocket-sharp.dll with RosSharp and PUN2 package, please delete one of them.
-
-
 
 # Usage 
-If you are interested build up WFH-VR system from scratch.
-
-You could follow the following tutorial:
-
-1. [Setup VR device](Tutorial/S_setup_VR.md)
-2. [LoCoBot setting in Unity](Tutorial/S_setup_locobot.md)
-3. [Setup PUN](Tutorial/S_setup_PUN.md)
-
-If you are interested in develop your own feature based on WFH-VR system or use WFH-VR system
 
 You could follow the following instrunction: 
 
-1. Download this unity package. [Link](https://drive.google.com/file/d/1kydMeaIZmJhMl7KHf5UtlN6aVfZTzvmk/view?usp=share_link)
-2. Create a New Unity Project and following the Basic setup section
+## Teleoperation
+
+1. Download WFH-VR unity package from this repo. [Link](https://github.com/ARG-NCTU/WFH_locobot_unity)
+2. Create a New Unity Project
+3. Install necessary package
+    - XR interaction Toolkit
+    - RosSharp 
+    - PUN2
+    - Animation Rigging
+    - Final-ik 
 3. Import WFH-VR unity package
 4. Choose the scense fit your network setup and the feature
 
     - [[Tutorial Link](Tutorial/P_Local_w_VS.md)] Local mode : wired ethernet connection with VR-VS mode 
-    ![Global_w_VS.](Tutorial/Figures/local_w_vs.PNG)
+    ![P_Local_w_VS](Tutorial/Figures/local_w_vs.PNG)
     - [[Tutorial Link](Tutorial/P_Local_w_3DO.md)] Local mode : wired ethernet connection with VR-3DO mode (pose-estimation by DOPE) 
-    ![Global_w_VS.](Tutorial/Figures/local_w_3do.PNG)
+    ![P_Local_w_3DO.](Tutorial/Figures/local_w_3do.PNG)
     - [[Tutorial Link](Tutorial/P_Global_w_VS.md)] Glocal mode : PUN2 cloud framework with VR-VS mode 
-    ![Global_w_VS.](Tutorial/Figures/global_w_vs.PNG)
+    ![P_Global_w_VS.](Tutorial/Figures/global_w_vs.PNG)
     - [[Tutorial Link](Tutorial/P_Global_w_3DO.md)] Glocal mode : PUN2 cloud framework with VR-3DO mode (pose-estimation by DOPE) 
-    ![Global_w_VS.](Tutorial/Figures/global_w_3do.PNG)
+    ![P_Global_w_3DO.](Tutorial/Figures/global_w_3do.PNG)
 
+## Record the trajectory
 
+1. Recommand you should record bag first
+```
+$ source record_vr.sh
+```
+
+2. Launch a file for listening tf from /base_link /gripper_link
+```
+$ roslaunch locobot_trajectory_log new_locobot_trajectory_log.launch
+```
+
+3. Save and Stop recoring as csv. file 
+
+```
+$ rosservice call /start_record 
+$ rosservice call /stop_record 
+```

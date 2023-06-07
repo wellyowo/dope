@@ -15,28 +15,54 @@ Remote site :
 
 
 Network setup
-1. Get PUN App ID and region of the server
+1. Get PUN App ID
+
+![PUN_id](Figures/PUN_id.png)
+
+2. Choose region of the server (E.g jp,us)
+
+3. Setup PUN information in PC whose running unity in both site (Machine 1, Machine 4)
 - ID : 0fbeb5f2-xxxx-xxxx-xxxx-3c50ed985759
 - dev region : jp
-2. Setup PUN information in PC whose running unity in both site (Machine 1, Machine 4)
 
+![PUN_set](Figures/PUN_set.png)
 
 ## Usage
+
+Procedure : 
+
+1. Set Machine 2 
+2. Set Machine 4 
+3. Set Machine 1 
+
 
 ### Machine 1 : Remote site : Unity setting 
 
 #### 1. Goto the scene (Global with video-streaming)
 
-#### 2. Goto Game Manager > UpdatedIP
-- Assign which object needed to update the ros_ip
-    - Default setting : 
-        - Robot Connector (real) Robot Connector (human) + 
-        - Camera view_1 
-        - Camera view_2 (if you have)
-- update the ip address with you ros_master_ip address
+#### 2. Set ip
+1. Resource > Pun_RPC_Real_locobot
+
+![punrpc_real](Figures/punrpc_real.png)
+
+2. Resource > Pun_RPC_Camera_view
+
+![punrpc_image](Figures/punrpc_image.png)
+
+3. Goto Game Manager > UpdatedIP
+    - assign Robot Connector(Human)
+    - change ROS_IP
+
+![punrpc_updateip](Figures/punrpc_updateip.png)
+
+4. Robot Connector (Human)
+
+![punrpc_humanconnector](Figures/punrpc_humanconnector.png)
+
 
 #### 3. Start Unity
-- Once you saw the operator's locobot (transparents) appear, assign the fake locobot to the Robot Connector>Joint State Paatcher>Urdf Robot and press enable to publish Joint state
+- You should start the Machine 4 First
+- Once you saw the operator's locobot (transparents) appear, assign the human locobot to the Robot Connector (Human) > Joint State Paatcher > Urdf Robot and press enable to publish Joint state
 
 ### Machine 2 : Remote site : ROS setting 
 Remind : 
@@ -93,4 +119,7 @@ What script needed to launch :
 Remind : 
 
 - start before the remote site's Unity
+
+
+
 

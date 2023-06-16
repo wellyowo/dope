@@ -24,7 +24,7 @@
 
 class calibration{
  private:
-  int count; // Counter for process
+  int count = 0; // Counter for process
   double dx, dz; // Predefined path distance
   std::fstream fs; // file stream
   std::string tag_frame; // frame id for tag, from parameter server
@@ -81,7 +81,7 @@ class calibration{
       ROS_ERROR("%s", ex.what());
       return 0;
     }
-    if(target=="fake_tcp_0")
+    if(target=="ar_tag")
       ROS_INFO("Hand coord.: %f, %f, %f", t.getOrigin().getX(), t.getOrigin().getY(), t.getOrigin().getZ());
     return 1;
   }
@@ -115,10 +115,12 @@ class calibration{
    *    1  2  5  6  9
    */
   void calibration_process(void){
-    while(count<6){
+    while(count<7){
       ROS_INFO("----------- %d -----------", count);
+      
       joint_command.position.resize(7);
       switch(count){
+       //2023 old path of calibration
         case 0:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
@@ -127,6 +129,13 @@ class calibration{
           joint_command.position[4] = 1.2793400287628174;
           joint_command.position[5] = -0.921922504901886;
           joint_command.position[6] = 0.11504856497049332;
+          // joint_command.position[0] = 0.0;
+          // joint_command.position[1] = 0.0;
+          // joint_command.position[2] = -0.21629129350185394;
+          // joint_command.position[3] = -0.6810874938964844;
+          // joint_command.position[4] = 0.7700583934783936;
+          // joint_command.position[5] = -0.1564660519361496;
+          // joint_command.position[6] = -0.05522330850362778;
           break;
         case 1:
           joint_command.position[0] = 0.0;
@@ -136,6 +145,13 @@ class calibration{
           joint_command.position[4] = 1.2041749954223633;
           joint_command.position[5] = -0.7516506314277649;
           joint_command.position[6] = 0.05675728991627693;
+          // joint_command.position[0] = 0.0;
+          // joint_command.position[1] = 0.0;
+          // joint_command.position[2] = -0.0644271969795227;
+          // joint_command.position[3] = 0.40036898851394653;
+          // joint_command.position[4] = -0.3773592710494995;
+          // joint_command.position[5] = 0.0076699042692780495;
+          // joint_command.position[6] = 0.003067961661145091;
           break;
         case 2:
           joint_command.position[0] = 0.0;
@@ -145,6 +161,13 @@ class calibration{
           joint_command.position[4] = 0.24236896634101868;
           joint_command.position[5] = -0.7102331519126892;
           joint_command.position[6] = 0.04601942375302315;
+          // joint_command.position[0] = 0.0;
+          // joint_command.position[1] = 0.0;
+          // joint_command.position[2] = 0.25003886222839355;
+          // joint_command.position[3] = 0.052155349403619766;
+          // joint_command.position[4] = 0.5614370107650757;
+          // joint_command.position[5] = -0.6550098061561584;
+          // joint_command.position[6] = 0.02454369328916073;
           break;
         case 3:
           joint_command.position[0] = 0.0;
@@ -154,17 +177,31 @@ class calibration{
           joint_command.position[4] = 1.0323691368103027;
           joint_command.position[5] = -0.7992039918899536;
           joint_command.position[6] = 0.00920388475060463;
+          // joint_command.position[0] = 0.0;
+          // joint_command.position[1] = 0.0;
+          // joint_command.position[2] = 0.39269909262657166;
+          // joint_command.position[3] = 1.0032234191894531;
+          // joint_command.position[4] = -0.7731263637542725;
+          // joint_command.position[5] = -0.1840776950120926;
+          // joint_command.position[6] = 0.023009711876511574;
           break;
+        // case 4:
+        //   joint_command.position[0] = 0.0;
+        //   joint_command.position[1] = 0.0;
+        //   joint_command.position[2] = 0.3160000443458557;
+        //   joint_command.position[3] = 0.3129321038722992;
+        //   joint_command.position[4] = 0.33594179153442383;
+        //   joint_command.position[5] = -0.6703495979309082;
+        //   joint_command.position[6] = 0.07363107800483704;
+        //   // joint_command.position[0] = 0.0;
+        //   // joint_command.position[1] = 0.0;
+        //   // joint_command.position[2] = 0.8176117539405823;
+        //   // joint_command.position[3] = 0.3436117172241211;
+        //   // joint_command.position[4] = 0.1426602154970169;
+        //   // joint_command.position[5] = -0.5154175758361816;
+        //   // joint_command.position[6] = 0.05982525274157524;
+        //   break;
         case 4:
-          joint_command.position[0] = 0.0;
-          joint_command.position[1] = 0.0;
-          joint_command.position[2] = 0.3160000443458557;
-          joint_command.position[3] = 0.3129321038722992;
-          joint_command.position[4] = 0.33594179153442383;
-          joint_command.position[5] = -0.6703495979309082;
-          joint_command.position[6] = 0.07363107800483704;
-          break;
-        case 5:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
           joint_command.position[2] = 0.7608544826507568;
@@ -172,8 +209,41 @@ class calibration{
           joint_command.position[4] = 1.142815709114747;
           joint_command.position[5] = -0.8835729360580444;
           joint_command.position[6] = 0.11658254265785217;
+        //   // joint_command.position[0] = 0.0;
+        //   // joint_command.position[1] = 0.0;
+        //   // joint_command.position[2] = 0.03374757990241051;
+        //   // joint_command.position[3] = -0.2653786838054657;
+        //   // joint_command.position[4] = 1.4051264524459839;
+        //   // joint_command.position[5] = -1.1627575159072876;
+        //   // joint_command.position[6] = -0.06902913749217987;
+          break;
+        case 5:
+          joint_command.position[0] = 0.0;
+          joint_command.position[1] = 0.0;
+          joint_command.position[2] = 0.39599651930881474;
+          joint_command.position[3] = 0.694925283216342;
+          joint_command.position[4] = -0.30707004722297415;
+          joint_command.position[5] = -0.3878552359933678;
+          joint_command.position[6] =  -0.0030679616611450906;
+          // joint_command.position[0] = 0.0;
+          // joint_command.position[1] = 0.0;
+          // joint_command.position[2] = 0.8176117539405823;
+          // joint_command.position[3] = 0.3436117172241211;
+          // joint_command.position[4] = 0.1426602154970169;
+          // joint_command.position[5] = -0.5154175758361816;
+          // joint_command.position[6] = 0.05982525274157524;
+          break;
+        case 6:
+          joint_command.position[0] = 0.0;
+          joint_command.position[1] = 0.0;
+          joint_command.position[2] = 0.03374757990241051;
+          joint_command.position[3] = -0.2653786838054657;
+          joint_command.position[4] = 1.4051264524459839;
+          joint_command.position[5] = -1.1627575159072876;
+          joint_command.position[6] = -0.06902913749217987;
           break;
       }
+
       arm_control.publish(joint_command);
       ros::Duration(5.0).sleep();
 

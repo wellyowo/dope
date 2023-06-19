@@ -53,6 +53,7 @@ int main(int argc, char** argv)
   tf::Transform T;
   if(!get_best_transformation(argv[1], T)) return -1;
   double r, p, y;
+  double pi=3.14159265359;
   T.getBasis().getRPY(r, p, y);
   std::cout << "----------------------------------------------------\n";
   std::cout << "Translation: ["
@@ -62,6 +63,11 @@ int main(int argc, char** argv)
             << T.getRotation().getZ() << " " << T.getRotation().getW() << "]\n"
             << "Orientation: (Euler) [" 
             << r << " " << p << " " << y << "]\n";
+  std::cout << "---------------------In unity-------------------------\n";
+  std::cout << "Translation: ["
+            << -1 * T.getOrigin().getY() << " " << T.getOrigin().getZ() << " " << T.getOrigin().getX() << "]\n"
+            << "Orientation: (Euler) [" 
+            << p * 180/pi + 90  << " " << y * 180/pi << " " << r * 180/pi << "]\n";
   return 0;
 }
 

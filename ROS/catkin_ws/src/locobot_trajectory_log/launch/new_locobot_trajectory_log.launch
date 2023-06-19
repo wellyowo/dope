@@ -5,6 +5,6 @@
         <param name="number"        value="$(arg number)" />
         <param name="fps"           value="$(arg fps)" />
 
-	<node name="record_data_node" pkg="locobot_trajectory_log" type="record.py" output="screen"/>
+	<node name="record_data_node" pkg="locobot_trajectory_log" type="record202306.py" output="screen"/>
 
 </launch>

@@ -115,134 +115,177 @@ class calibration{
    *    1  2  5  6  9
    */
   void calibration_process(void){
-    while(count<7){
+    while(count<9){
       ROS_INFO("----------- %d -----------", count);
       
       joint_command.position.resize(7);
+      // switch(count){
+      //  //2023 old path of calibration
+      //   case 0:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = -0.17947575449943542;
+      //     joint_command.position[3] = -0.42031073570251465;
+      //     joint_command.position[4] = 1.2793400287628174;
+      //     joint_command.position[5] = -0.921922504901886;
+      //     joint_command.position[6] = 0.0;
+          
+      //     break;
+      //   case 1:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = -0.4463884234428406;
+      //     joint_command.position[3] = -0.4801360070705414;
+      //     joint_command.position[4] = 1.2041749954223633;
+      //     joint_command.position[5] = -0.7516506314277649;
+      //     joint_command.position[6] = 0.0;
+          
+      //     break;
+      //   case 2:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = -0.21935926377773285;
+      //     joint_command.position[3] = 0.33133986592292786;
+      //     joint_command.position[4] = 0.24236896634101868;
+      //     joint_command.position[5] = -0.7102331519126892;
+      //     joint_command.position[6] = 0.0;
+          
+      //     break;
+      //   case 3:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = -0.01840776950120926;
+      //     joint_command.position[3] = -0.2346990704536438;
+      //     joint_command.position[4] = 1.0323691368103027;
+      //     joint_command.position[5] = -0.7992039918899536;
+      //     joint_command.position[6] = 0.0;
+          
+      //     break;
+      
+      //   case 4:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = 0.39599651930881474;
+      //     joint_command.position[3] = 0.694925283216342;
+      //     joint_command.position[4] = -0.30707004722297415;
+      //     joint_command.position[5] = -0.3878552359933678;
+      //     joint_command.position[6] =  -0.0;
+        
+      //     break;
+      //   case 5:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = 0.7608544826507568;
+      //     joint_command.position[3] = -0.2208932340145111;
+      //     joint_command.position[4] = 1.142815709114747;
+      //     joint_command.position[5] = -0.8835729360580444;
+      //     joint_command.position[6] = 0.0;
+         
+      //     break;
+      //   case 6:
+      //     joint_command.position[0] = 0.0;
+      //     joint_command.position[1] = 0.0;
+      //     joint_command.position[2] = 0.03374757990241051;
+      //     joint_command.position[3] = -0.2653786838054657;
+      //     joint_command.position[4] = 1.4051264524459839;
+      //     joint_command.position[5] = -1.1627575159072876;
+      //     joint_command.position[6] = -0.0;
+      //     break;
+      // }
       switch(count){
-       //2023 old path of calibration
+       // new path in tutorial
         case 0:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = -0.17947575449943542;
-          joint_command.position[3] = -0.42031073570251465;
-          joint_command.position[4] = 1.2793400287628174;
-          joint_command.position[5] = -0.921922504901886;
-          joint_command.position[6] = 0.11504856497049332;
-          // joint_command.position[0] = 0.0;
-          // joint_command.position[1] = 0.0;
-          // joint_command.position[2] = -0.21629129350185394;
-          // joint_command.position[3] = -0.6810874938964844;
-          // joint_command.position[4] = 0.7700583934783936;
-          // joint_command.position[5] = -0.1564660519361496;
-          // joint_command.position[6] = -0.05522330850362778;
+          joint_command.position[2] = 0.7192560919416702;
+          joint_command.position[3] = 0.007935531271520774;
+          joint_command.position[4] = 0.8674325239257196;
+          joint_command.position[5] = -0.8753680551972404;
+          joint_command.position[6] = 0.0;
+          
           break;
         case 1:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = -0.4463884234428406;
-          joint_command.position[3] = -0.4801360070705414;
-          joint_command.position[4] = 1.2041749954223633;
-          joint_command.position[5] = -0.7516506314277649;
-          joint_command.position[6] = 0.05675728991627693;
-          // joint_command.position[0] = 0.0;
-          // joint_command.position[1] = 0.0;
-          // joint_command.position[2] = -0.0644271969795227;
-          // joint_command.position[3] = 0.40036898851394653;
-          // joint_command.position[4] = -0.3773592710494995;
-          // joint_command.position[5] = 0.0076699042692780495;
-          // joint_command.position[6] = 0.003067961661145091;
+          joint_command.position[2] = 0.43680286462764245;
+          joint_command.position[3] = 0.4535056365584407;
+          joint_command.position[4] = -0.031556044701666786;
+          joint_command.position[5] = -0.4219495918567739;
+          joint_command.position[6] = 0.0;
+          
           break;
         case 2:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = -0.21935926377773285;
-          joint_command.position[3] = 0.33133986592292786;
-          joint_command.position[4] = 0.24236896634101868;
-          joint_command.position[5] = -0.7102331519126892;
-          joint_command.position[6] = 0.04601942375302315;
-          // joint_command.position[0] = 0.0;
-          // joint_command.position[1] = 0.0;
-          // joint_command.position[2] = 0.25003886222839355;
-          // joint_command.position[3] = 0.052155349403619766;
-          // joint_command.position[4] = 0.5614370107650757;
-          // joint_command.position[5] = -0.6550098061561584;
-          // joint_command.position[6] = 0.02454369328916073;
+          joint_command.position[2] = 0.31840939618232694;
+          joint_command.position[3] = -0.17884662415840327;
+          joint_command.position[4] = 0.6440863581064384;
+          joint_command.position[5] = -0.4652397339480352;
+          joint_command.position[6] = 0.0;
+          
           break;
         case 3:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = -0.01840776950120926;
-          joint_command.position[3] = -0.2346990704536438;
-          joint_command.position[4] = 1.0323691368103027;
-          joint_command.position[5] = -0.7992039918899536;
-          joint_command.position[6] = 0.00920388475060463;
-          // joint_command.position[0] = 0.0;
-          // joint_command.position[1] = 0.0;
-          // joint_command.position[2] = 0.39269909262657166;
-          // joint_command.position[3] = 1.0032234191894531;
-          // joint_command.position[4] = -0.7731263637542725;
-          // joint_command.position[5] = -0.1840776950120926;
-          // joint_command.position[6] = 0.023009711876511574;
-          break;
-        // case 4:
-        //   joint_command.position[0] = 0.0;
-        //   joint_command.position[1] = 0.0;
-        //   joint_command.position[2] = 0.3160000443458557;
-        //   joint_command.position[3] = 0.3129321038722992;
-        //   joint_command.position[4] = 0.33594179153442383;
-        //   joint_command.position[5] = -0.6703495979309082;
-        //   joint_command.position[6] = 0.07363107800483704;
-        //   // joint_command.position[0] = 0.0;
-        //   // joint_command.position[1] = 0.0;
-        //   // joint_command.position[2] = 0.8176117539405823;
-        //   // joint_command.position[3] = 0.3436117172241211;
-        //   // joint_command.position[4] = 0.1426602154970169;
-        //   // joint_command.position[5] = -0.5154175758361816;
-        //   // joint_command.position[6] = 0.05982525274157524;
-        //   break;
+          joint_command.position[2] = 0.4127262431486712;         
+          joint_command.position[3] = -0.043653784566603376;
+          joint_command.position[4] = 1.1187589264379618;
+          joint_command.position[5] = -1.0751051418713584;
+          joint_command.position[6] = 0.0;
+          
+          break;  
         case 4:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = 0.7608544826507568;
-          joint_command.position[3] = -0.2208932340145111;
-          joint_command.position[4] = 1.142815709114747;
-          joint_command.position[5] = -0.8835729360580444;
-          joint_command.position[6] = 0.11658254265785217;
-        //   // joint_command.position[0] = 0.0;
-        //   // joint_command.position[1] = 0.0;
-        //   // joint_command.position[2] = 0.03374757990241051;
-        //   // joint_command.position[3] = -0.2653786838054657;
-        //   // joint_command.position[4] = 1.4051264524459839;
-        //   // joint_command.position[5] = -1.1627575159072876;
-        //   // joint_command.position[6] = -0.06902913749217987;
+          joint_command.position[2] = 0.0;         
+          joint_command.position[3] = -0.12038027303164923;
+          joint_command.position[4] = 0.9573324703816067;
+          joint_command.position[5] = -0.8369521973499575;
+          joint_command.position[6] = 0.0;
+          
           break;
+      
         case 5:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = 0.39599651930881474;
-          joint_command.position[3] = 0.694925283216342;
-          joint_command.position[4] = -0.30707004722297415;
-          joint_command.position[5] = -0.3878552359933678;
-          joint_command.position[6] =  -0.0030679616611450906;
-          // joint_command.position[0] = 0.0;
-          // joint_command.position[1] = 0.0;
-          // joint_command.position[2] = 0.8176117539405823;
-          // joint_command.position[3] = 0.3436117172241211;
-          // joint_command.position[4] = 0.1426602154970169;
-          // joint_command.position[5] = -0.5154175758361816;
-          // joint_command.position[6] = 0.05982525274157524;
+          joint_command.position[2] = -0.20466997064680967;
+          joint_command.position[3] = -0.18059834043596634;
+          joint_command.position[4] = 1.1052399907767243;
+          joint_command.position[5] = -0.924641650340758;
+          joint_command.position[6] =  -0.0;
+        
           break;
         case 6:
           joint_command.position[0] = 0.0;
           joint_command.position[1] = 0.0;
-          joint_command.position[2] = 0.03374757990241051;
-          joint_command.position[3] = -0.2653786838054657;
-          joint_command.position[4] = 1.4051264524459839;
-          joint_command.position[5] = -1.1627575159072876;
-          joint_command.position[6] = -0.06902913749217987;
+          joint_command.position[2] = -0.19483267984183247;
+          joint_command.position[3] = -0.46850018532652804;
+          joint_command.position[4] = 0.7999040321528218;
+          joint_command.position[5] = -0.33140384682629376;
+          joint_command.position[6] =  -0.0;
+        
+          break;
+        case 7:
+          joint_command.position[0] = 0.0;
+          joint_command.position[1] = 0.0;
+          joint_command.position[2] = -0.45698761867037224;
+          joint_command.position[3] = -0.3722117745093646;
+          joint_command.position[4] = 1.136903525580398;
+          joint_command.position[5] = -0.7646917510710335;
+          joint_command.position[6] = 0.0;
+         
+          break;
+        case 8:
+          joint_command.position[0] = 0.0;
+          joint_command.position[1] = 0.0;
+          joint_command.position[2] = -0.2890000205307939;
+          joint_command.position[3] = 0.2777687362896786;
+          joint_command.position[4] = 0.4470723703809171;
+          joint_command.position[5] = -0.7248411066705956;
+          joint_command.position[6] = -0.0;
           break;
       }
+
 
       arm_control.publish(joint_command);
       ros::Duration(5.0).sleep();

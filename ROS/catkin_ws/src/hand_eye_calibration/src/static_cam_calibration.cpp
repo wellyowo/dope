@@ -83,7 +83,7 @@ class calibration{
       ROS_ERROR("%s", ex.what());
       return 0;
     }
-    if(target=="fake_tcp_0")
+    if(target=="ar_tag")
       ROS_INFO("Hand coord.: %f, %f, %f", t.getOrigin().getX(), t.getOrigin().getY(), t.getOrigin().getZ());
     return 1;
   }

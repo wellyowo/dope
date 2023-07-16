@@ -30,6 +30,6 @@ class object_trans():
 if __name__ == "__main__":
     rospy.init_node("dope_pose_transform", anonymous=False)
 
-    pose_butter = object_trans("/dope/pose_Butter", 'base_link', 'camera_left_color_optical_frame')
-    pose_sugar = object_trans("/dope/pose_sugar", "base_link", 'camera_left_color_optical_frame')    
+    pose_butter = object_trans("/dope/pose_Butter", 'map', 'camera_left_color_optical_frame')
+    pose_sugar = object_trans("/dope/pose_sugar", "map", 'camera_left_color_optical_frame')    
     rospy.spin()

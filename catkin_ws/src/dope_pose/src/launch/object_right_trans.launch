@@ -1,0 +1,6 @@
+
+<launch>
+    <include file="$(find dope)/launch/dope_right.launch" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_right_trans" args="-0.0071 -0.1226 0.2281 0 0 0 base_link camera_right_link" />
+    <node pkg="dope_pose" type="object_tf_right.py" name="dope_pose_transform" output="screen" />
+</launch>   
